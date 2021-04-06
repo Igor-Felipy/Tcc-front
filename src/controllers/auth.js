@@ -1,24 +1,40 @@
 const { default: axios } = require('axios');
+const Authenticated = false;
 
 const base = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:5000'
 })
 
-function register(){
-    base.post('/register',{
-        'teste':'teste'
+function register(email,nickname,name,birth,password){
+    base.post('/auth/register',{
+        "email":email,
+        "nickname":nickname,
+        "name":name,
+        "birth":birth,
+        "password":password
+    }).then((response) =>{
+        if (error in response){
+            return response.error;
+        }else {
+            return response
+        }
     })
 }
-function login(){
-    base.post('/login',{
-        'username':'teste',
-        'password':'teste'
+
+function login(email,password){
+    base.post('/auth/login',{
+        'email':email,
+        'password':password
     }).then(function (response){
-        //o response retorna ou uma confirmação de login ou uma falha de autenticação, então é necessario fazer um if para separar cada response e dai salvar o token
-        sessionStorage.setItem('@just-feelings/token',response.token)
+        if ('error' in response){
+            
+        } else {
+            sessionStorage.removeItem('@just-feelings/token')
+            sessionStorage.setItem('@just-feelings/token',response.token)
+            Authenticated = true
+        }
     })
 }
 
 
-
-export const isAuthenticated = () => true;
+export const isAuthenticated = () => Authenticated.valueOf();
