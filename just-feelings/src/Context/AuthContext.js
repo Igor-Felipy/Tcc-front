@@ -1,31 +1,16 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-import api from '../api';
-import history from '../history';
+import useAuth from './hooks/useAuth';
 
 const Context = createContext();
 
 function AuthProvider({ children }) {
-    const [authenticated, setAuthenticated ] = useState(false);
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token){
-            
-        }
-    },[]);
-
-    async function handleLogin() {
-        const{ data: { token } } = await api.post('/authenticate');
-
-        localStorage.setItem('token', JSON.stringify(token));
-        api.defaults.headers.Authorization = "Bearer ${token}";
-        setAuthenticated(true);
-        history.push('/users');
-    }
+    const { 
+        authenticated, loading, handleLogin, handleLogout, 
+    } = useAuth();
 
     return (
-        <Context.Provider value={{ authenticated, handleLogin }}>
+        <Context.Provider value={{ loading, authenticated, handleLogin, handleLogout }}>
             {children}
         </Context.Provider>
     );
