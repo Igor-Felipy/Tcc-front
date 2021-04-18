@@ -1,8 +1,14 @@
 import React, { useContext } from 'react';
 
-import { Context } from '../Context/AuthContext'
+import { Context } from '../Context/AuthContext';
+
+import history from '../history';
 
 export default function Login() {
+  function redirect() {
+    history.push('/register');
+  }
+
   const { authenticated, handleLogin } = useContext(Context);
 
   console.debug('Login', authenticated);
@@ -28,7 +34,7 @@ export default function Login() {
             </div>
             <div className="class-buttons" style={styles.fields}>
               <button type="button" onClick={handleLogin} style={styles.buttonLogin}>Entrar!</button>
-              <button type="button" onClick={handleLogin} style={styles.buttonRegister}>Registrar</button>
+              <button type="button" onClick={redirect} style={styles.buttonRegister}>Registrar</button>
             </div>
           </form>
         </div>
@@ -99,8 +105,8 @@ input:{
   padding:"5px"
 },
 buttonLogin:{
-  width:"600px",
-  height:"55px",
+  width:"608px",
+  height:"63px",
   marginTop:"10px",
   backgroundColor:"#00BFA5",
   borderRadius: "5px",
