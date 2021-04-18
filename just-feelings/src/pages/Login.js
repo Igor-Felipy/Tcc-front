@@ -108,6 +108,7 @@ buttonLogin:{
   fontSize: "16px",
   color:"#FFF",
   cursor: "pointer",
+  boxShadow: "0px 1px 2px 0px rgba(0,0,0,0.5)"
 },
 buttonRegister:{
   width:"600px",
