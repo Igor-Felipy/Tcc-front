@@ -5,7 +5,8 @@ import { Context } from './Context/AuthContext';
 
 import Login from './pages/Login';
 import Users from './pages/Users';
-import Register from './pages/Register'
+import Register from './pages/Register';
+import Feed from "./pages/Feed";
 
 function CustomRoute({ isPrivate, ...rest }) {
     const { loading, authenticated } = useContext(Context);
@@ -27,7 +28,7 @@ export default function Routes() {
             <CustomRoute exact path="/login" component={Login}/>
             <CustomRoute exact path="/register" component={Register}/>
             <CustomRoute isPrivate exact path="/users" component={Users}/>
-            <CustomRoute exact path="/" component={Register}/>
+            <CustomRoute exact path="/" component={Feed}/>
         </Switch>
     );
 }
