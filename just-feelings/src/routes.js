@@ -8,11 +8,22 @@ import Users from './pages/Users';
 import Register from './pages/Register';
 import Feed from "./pages/Feed";
 
+
+import Loading_logo from './pages/imgs/jf_logo.gif';
+
 function CustomRoute({ isPrivate, ...rest }) {
     const { loading, authenticated } = useContext(Context);
 
     if (loading) {
-        return <h1>loading...</h1>
+        return(
+            <h1 style={{
+                display:"flex",
+                justifyContent:"center",
+                alignItems:"center"   
+            }}>
+                <img src={Loading_logo} />
+            </h1>
+        )
     }
 
     if(isPrivate && !authenticated) {
