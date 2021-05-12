@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Users from './pages/Users';
 import Register from './pages/Register';
 import Feed from "./pages/Feed";
+import Post from "./pages/PostDetails";
 
 
 import Loading_logo from './pages/imgs/jf_logo.gif';
@@ -21,7 +22,7 @@ function CustomRoute({ isPrivate, ...rest }) {
                 justifyContent:"center",
                 alignItems:"center"   
             }}>
-                <img src={Loading_logo} />
+                <img alt="" src={Loading_logo} />
             </h1>
         )
     }
@@ -39,7 +40,8 @@ export default function Routes() {
             <CustomRoute exact path="/login" component={Login}/>
             <CustomRoute exact path="/register" component={Register}/>
             <CustomRoute isPrivate exact path="/users" component={Users}/>
-            <CustomRoute exact path="/" component={Feed}/>
+            <CustomRoute exact path="/post" component={Post}/>
+            <CustomRoute isPrivate exact path="/" component={Feed}/>
         </Switch>
     );
 }
