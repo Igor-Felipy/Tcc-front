@@ -15,7 +15,7 @@ export default function Feed() {
             <div className="superiorBar" style={styles.superiorBar}>
                 <div style={styles.superiorButton}>
                         <button onClick={redirect} style={styles.returnButton}>
-                            <img src={Arrow} alt="Returnmy Button" width="12" height="24"/>
+                            <img src={Arrow} alt="Return Button" width="12" height="24"/>
                         </button>
                 </div>
                     <div style={styles.superiorP}><p style={styles.p}>Explorar</p></div>
@@ -50,7 +50,7 @@ export default function Feed() {
                 </div>  
                 <div className="post" style={styles.post}>
                     <div className="post-superior" style={styles.postSuperior}>
-                        <img src="https://source.unsplash.com/random/64x64" alt="" style={styles.postProfilePic}/>
+                        <img srcRight="https://source.unsplash.com/random/64x64" alt="" style={styles.postProfilePic}/>
                         <div className="post-superior-data" style={styles.postSuperiorData}>
                             <h2 style={styles.postProfileName}>Username</h2>
                             <p style={styles.postProfileData}>post data</p>
