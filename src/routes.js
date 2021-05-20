@@ -8,6 +8,8 @@ import Users from './pages/Users';
 import Register from './pages/Register';
 import Feed from "./pages/Feed";
 import Post from "./pages/PostDetails";
+import Profile from "./pages/Profile";
+import NewPost from "./pages/NewPost";
 
 
 import Loading_logo from './pages/imgs/jf_logo.gif';
@@ -22,7 +24,7 @@ function CustomRoute({ isPrivate, ...rest }) {
                 justifyContent:"center",
                 alignItems:"center"   
             }}>
-                <img alt="" src={Loading_logo} />
+                <img alt="charging" src={Loading_logo} />
             </h1>
         )
     }
@@ -37,11 +39,13 @@ function CustomRoute({ isPrivate, ...rest }) {
 export default function Routes() {
     return (
         <Switch>
+            <CustomRoute isPrivate exact path="/" component={Feed}/>
             <CustomRoute exact path="/login" component={Login}/>
             <CustomRoute exact path="/register" component={Register}/>
+            <CustomRoute exact path="/profile" component={Profile}/>
+            <CustomRoute exact path="/newPost" component={NewPost}/>
             <CustomRoute isPrivate exact path="/users" component={Users}/>
-            <CustomRoute exact path="/post" component={Post}/>
-            <CustomRoute isPrivate exact path="/" component={Feed}/>
+            <CustomRoute isPrivate exact path="/post" component={Post}/>
         </Switch>
     );
 }
