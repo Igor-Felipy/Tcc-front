@@ -8,28 +8,37 @@ export default function useAuth() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token){
-            api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+        const token = localStorage.getItem('justFeelings');
+        if (token != null){
+            api.defaults.headers.authorization = `Bearer ${JSON.parse(token)}`;
             setAuthenticated(true)
         }
 
         setLoading(false);
     },[]);
 
-    async function handleLogin() {
-        const{ data: { token } } = await api.post('/authenticate');
-
-        localStorage.setItem('token', JSON.stringify(token));
-        api.defaults.headers.Authorization = `Bearer ${token}`;
-        setAuthenticated(true);
-        history.push('/users');
+    async function handleLogin(email, pass) {
+        const data = await api.post('/auth/login', {
+            "email":email,
+            "password":pass
+        });
+        
+        if ("error" in data) {
+            localStorage.removeItem('justFeelings')
+            history.push('/register');
+        } else {
+            const token = data.token;
+            localStorage.setItem('justFeelings', JSON.stringify(token));
+            api.defaults.headers.authorization = `Bearer ${token}`;
+            setAuthenticated(true);
+            history.push('/');
+        }
     }
 
     function handleLogout() {
         setAuthenticated(false);
-        localStorage.removeItem('token');
-        api.defaults.headers.Authorization = undefined;
+        localStorage.removeItem('justFeelings');
+        api.defaults.headers.authorization = undefined;
         history.push('/login');
     }
 

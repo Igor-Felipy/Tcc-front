@@ -36,14 +36,24 @@ function CustomRoute({ isPrivate, ...rest }) {
     return <Route {...rest} />;
 }
 
+function Logout(){
+    const { handleLogout } = useContext(Context);
+    return(
+        <div>
+            {handleLogout()}
+        </div>
+    )
+}
+
 export default function Routes() {
     return (
         <Switch>
-            <CustomRoute isPrivate exact path="/" component={Feed}/>
             <CustomRoute exact path="/login" component={Login}/>
+            <CustomRoute exact path="/logout" component={Logout}/>
             <CustomRoute exact path="/register" component={Register}/>
-            <CustomRoute exact path="/profile" component={Profile}/>
-            <CustomRoute exact path="/newPost" component={NewPost}/>
+            <CustomRoute isPrivate exact path="/" component={Feed}/>
+            <CustomRoute isPrivate exact path="/profile" component={Profile}/>
+            <CustomRoute isPrivate exact path="/newPost" component={NewPost}/>
             <CustomRoute isPrivate exact path="/users" component={Users}/>
             <CustomRoute isPrivate exact path="/post" component={Post}/>
         </Switch>

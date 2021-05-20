@@ -9,10 +9,17 @@ export default function Login() {
     history.push('/register');
   }
 
+  
   const { authenticated, handleLogin } = useContext(Context);
-
+  
   console.debug('Login', authenticated);
-
+  
+  function makeLogin(){
+    const email = document.querySelector("#email").value;
+    const pass = document.querySelector("#senha").value;
+    handleLogin(email,pass);
+  }
+  
   return (
     <div className="total" style={styles.total}>
       <div className="superior-bar" style={styles.superiorBar}>
@@ -26,14 +33,14 @@ export default function Login() {
           <form>
             <div className="class-mail" style={styles.fields}>
               <label for="email" style={styles.label}>Email</label>
-              <input type="text" id="name" name="senha" style={styles.input}/>
+              <input type="text" id="email" name="email" style={styles.input}/>
             </div>
-            <div classname="class-pass" style={styles.fields}>
+            <div className="class-pass" style={styles.fields}>
               <label for="senha" style={styles.label}>Senha</label >
               <input type="password" id="senha" name="senha" style={styles.input}/>
             </div>
             <div className="class-buttons" style={styles.fields}>
-              <button type="button" onClick={handleLogin} style={styles.buttonLogin}>Entrar!</button>
+              <button type="button" onClick={makeLogin} style={styles.buttonLogin}>Entrar!</button>
               <button type="button" onClick={redirect} style={styles.buttonRegister}>Registrar</button>
             </div>
           </form>
