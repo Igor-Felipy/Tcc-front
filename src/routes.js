@@ -51,11 +51,11 @@ export default function Routes() {
             <CustomRoute exact path="/login" component={Login}/>
             <CustomRoute exact path="/logout" component={Logout}/>
             <CustomRoute exact path="/register" component={Register}/>
-            <CustomRoute isPrivate exact path="/" component={Feed}/>
-            <CustomRoute isPrivate exact path="/profile" component={Profile}/>
-            <CustomRoute isPrivate exact path="/newPost" component={NewPost}/>
-            <CustomRoute isPrivate exact path="/users" component={Users}/>
-            <CustomRoute isPrivate exact path="/post" component={Post}/>
+            <CustomRoute  exact path="/" component={Feed}/>
+            <CustomRoute  exact path="/profile" component={Profile}/>
+            <CustomRoute  exact path="/newPost" component={NewPost}/>
+            <CustomRoute  exact path="/users" component={Users}/>
+            <CustomRoute  exact path="/post" component={Post}/>
         </Switch>
     );
 }
