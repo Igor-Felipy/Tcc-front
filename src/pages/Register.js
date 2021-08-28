@@ -1,21 +1,12 @@
 import SuperiorBar from './components/SuperiorBar';
 import RegisterForm from './components/RegisterForm';
+import TotalWrapper from './components/TotalWrapper';
 
 export default function Register() {
     return (
-        <div style={StyleSheet.total}>
+        <TotalWrapper>
             <SuperiorBar />
             <RegisterForm />
-        </div>
+        </TotalWrapper>
     )
-}
-
-const styles = {
-    total:{
-        display:'flex',
-        flex:'1',
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'space-between',
-    }
 }

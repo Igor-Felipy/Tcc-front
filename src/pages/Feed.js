@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import Post from './components/Post';
 import SuperiorBar from './components/SuperiorBar';
+import TotalWrapper from './components/TotalWrapper';
 
 import api from '../api';
 
@@ -18,22 +19,12 @@ export default function Feed() {
     },[]);
 
     return (
-        <div style={styles.total}>
+        <TotalWrapper>
             <SuperiorBar />
             <div style={styles.content}>
                 <Post profilePic='' postImage='' />
             </div>      
-        </div>
+        </TotalWrapper>
     );
 
-}
-
-const styles = {
-    total:{
-        display:'flex',
-        flex:'1',
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'space-between',
-    }
 }

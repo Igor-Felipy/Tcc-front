@@ -1,22 +1,13 @@
 import React, { useContext } from 'react';
 import SuperiorBar from './components/SuperiorBar';
 import LoginForm from './components/LoginForm';
+import TotalWrapper from './components/TotalWrapper';
 
 export default function Login() {
   return (
-    <div className="total" style={styles.total}>
+    <TotalWrapper>
       <SuperiorBar />
       <LoginForm />
-    </div>
+    </TotalWrapper>
   );
-}
-
-const styles = {
-total:{
-  display:'flex',
-  flex:'1',
-  flexDirection:'column',
-  alignItems:'center',
-  justifyContent:'space-between'
-},
 }

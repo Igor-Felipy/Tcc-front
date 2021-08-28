@@ -1,21 +1,12 @@
 import SuperiorBar from './components/SuperiorBar';
 import ProfileContent from './components/ProfileContent';
+import TotalWrapper from './components/TotalWrapper';
  
 export default function Profile(){
     return(
-        <div className="total" style={styles.total}>
+        <TotalWrapper>
             <SuperiorBar />
             <ProfileContent />
-        </div>
+        </TotalWrapper>
     )
-}
-
-const styles = {
-    total:{
-        display:'flex',
-        flex:'1',
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'space-between',
-    }
 }

@@ -1,28 +1,22 @@
 import SuperiorBar from './components/SuperiorBar';
 import PostDetailsComments from './components/PostDetailsComments';
 import PostDetailsPost from './components/PostDetailsPost';
+import TotalWrapper from './components/TotalWrapper';
 
 export default function Post(){
     return (
-        <div style={styles.total}>
+        <TotalWrapper>
             <SuperiorBar />
             <div className="content" style={styles.content}>
                 <PostDetailsPost />
                 <PostDetailsComments />
             </div>
 
-        </div>
+        </TotalWrapper>
     )
 }
 
 const styles = {
-    total:{
-        display:'flex',
-        flex:'1',
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'space-between',
-    },
     content:{
         display:"flex",
         justifyContent:"space-around",

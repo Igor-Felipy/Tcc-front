@@ -1,21 +1,13 @@
-import SuperiorBar from './components/SuperiorBar'
+import SuperiorBar from './components/SuperiorBar';
 import NewPostContent from './components/NewPostContent';
+import TotalWrapper from './components/TotalWrapper';
 
 export default function NewPost(){
     return(
-        <div style={styles.total}>
+        <TotalWrapper>
             <SuperiorBar />
             <NewPostContent />
-        </div>
+        </TotalWrapper>
     );
 }
 
-const styles = {
-    total:{
-        display:'flex',
-        flex:'1',
-        flexDirection:'column',
-        alignItems:'center',
-        justifyContent:'space-between',
-    }
-}
