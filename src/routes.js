@@ -3,10 +3,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { Context } from './Context/AuthContext';
 
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import Users from './pages/Users';
 import Register from './pages/Register';
-import Feed from "./pages/Feed";
+// import Feed from "./pages/Feed";
 import Post from "./pages/PostDetails";
 import Profile from "./pages/Profile";
 import NewPost from "./pages/NewPost";
@@ -48,10 +48,10 @@ function Logout(){
 export default function Routes() {
     return (
         <Switch>
-            <CustomRoute exact path="/login" component={Login}/>
+            {/* <CustomRoute exact path="/login" component={Login}/> */}
             <CustomRoute exact path="/logout" component={Logout}/>
             <CustomRoute exact path="/register" component={Register}/>
-            <CustomRoute  exact path="/" component={Feed}/>
+            <Route  exact path="/" component={Register}/>
             <CustomRoute  exact path="/profile" component={Profile}/>
             <CustomRoute  exact path="/newPost" component={NewPost}/>
             <CustomRoute  exact path="/users" component={Users}/>

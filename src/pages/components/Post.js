@@ -1,33 +1,33 @@
-import Heart from './imgs/heart.svg';
-import Comments from './imgs/comments.svg';
-import Share from './imgs/share.svg';
+import Heart from '../imgs/heart.svg';
+import Comments from '../imgs/comments.svg';
+import Share from '../imgs/share.svg';
 
 function Post(props) {
-    profilePic = props.profilePic;
-    postImage = props.postImage;
+    const profilePic = props.profilePic;
+    const postImage = props.postImage;
     return(
-        <div key={post.id} className="post" style={styles.post}>
-                                <div className="post-superior" style={styles.postSuperior}>
-                                    <img src={profilePic} alt="" style={styles.postProfilePic}/>
-                                    <div className="post-superior-data" style={styles.postSuperiorData}>
-                                        <h2 style={styles.postProfileName}>Username</h2>
-                                        <p style={styles.postProfileData}>post data</p>
-                                    </div>    
-                                </div>    
-                                    <div className="post-image" style={styles.postImageDiv}>
-                                        <img src={postImage} alt="" style={styles.postImage}/>
-                                    </div>
-                                <div className="post-bottom" style={styles.postBottoms}>
-                                    <div className="post-bottom-left" style={styles.postBottomLeft}>
-                                        <button style={styles.postBottomIcons}><img src={Heart} alt="" /></button>
-                                        <button style={styles.postBottomIcons}><img src={Comments} alt="" /></button>
-                                    </div>
-                                    <div className="post-bottom-right" style={styles.postBottomRight}>
-                                        <button style={styles.postBottomIcons}><img src={Share} alt=""/></button>
-                                    </div>
-                                </div>
-                                <div style={styles.riscoFinal}></div>
-                            </div>
+        <div style={styles.post}>
+            <div className="post-superior" style={styles.postSuperior}>
+                <img src={profilePic} alt="" style={styles.postProfilePic}/>
+                <div className="post-superior-data" style={styles.postSuperiorData}>
+                    <h2 style={styles.postProfileName}>Username</h2>
+                    <p style={styles.postProfileData}>post data</p>
+                </div>    
+            </div>    
+                <div className="post-image" style={styles.postImageDiv}>
+                    <img src={postImage} alt="" style={styles.postImage}/>
+                </div>
+            <div className="post-bottom" style={styles.postBottoms}>
+                <div className="post-bottom-left" style={styles.postBottomLeft}>
+                    <button style={styles.postBottomIcons}><img src={Heart} alt="" /></button>
+                    <button style={styles.postBottomIcons}><img src={Comments} alt="" /></button>
+                </div>
+                <div className="post-bottom-right" style={styles.postBottomRight}>
+                    <button style={styles.postBottomIcons}><img src={Share} alt=""/></button>
+                </div>
+            </div>
+            <div style={styles.riscoFinal}></div>
+        </div>
     )
 }
 

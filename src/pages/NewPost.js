@@ -7,7 +7,7 @@ class NewPost extends React.Component{
     render() {
         return(
             <TotalWrapper>
-                <SuperiorBar />
+                <SuperiorBar PageName="New Post" ReturnButton="True" SearchButton="True" ReturnURL="/" />
                 <NewPostContent />
             </TotalWrapper>
         );

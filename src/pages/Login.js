@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SuperiorBar from './components/SuperiorBar';
-import LoginForm from './components/LoginForm';
+// import LoginForm from './components/LoginForm';
 import TotalWrapper from './components/TotalWrapper';
 
 class Login extends React.Component {
@@ -8,7 +8,7 @@ class Login extends React.Component {
     return (
       <TotalWrapper>
         <SuperiorBar />
-        <LoginForm />
+        {/* <LoginForm /> */}
       </TotalWrapper>
     );
   }

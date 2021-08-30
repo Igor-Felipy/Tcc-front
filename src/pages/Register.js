@@ -7,7 +7,7 @@ class Register extends React.Component {
     render(){
         return (
             <TotalWrapper>
-                <SuperiorBar />
+                <SuperiorBar PageName="Register" ReturnButton="True" SearchButton="" ReturnURL="/login" />
                 <RegisterForm />
             </TotalWrapper>
         )

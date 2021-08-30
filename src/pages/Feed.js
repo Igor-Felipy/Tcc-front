@@ -4,32 +4,27 @@ import Post from './components/Post';
 import SuperiorBar from './components/SuperiorBar';
 import TotalWrapper from './components/TotalWrapper';
 
-import api from '../api';
-import { render } from '@testing-library/react';
 
 
 class Feed extends React.Component {
-    const [apiData, setApiData] = useState(null);
-    useEffect(() => {
-        const data = async function getData() {
-            return await api.post('/feed');
-        }
-        if (data != null){
-            setApiData(data);
-        }
-    },[]);
-
+    constructor(props){
+        super(props);
+    }
     render() {
         return (
             <TotalWrapper>
-                <SuperiorBar />
+                <SuperiorBar PageName="Feed" ReturnButton="" SearchButton="" ReturnURL="" />
                 <div style={styles.content}>
-                    <Post profilePic='' postImage='' />
+                    <Post profilePic='https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg' postImage='https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg' />
                 </div>      
             </TotalWrapper>
         );
     }
 
 }
-
+const styles = {
+    content:{
+        
+    }
+}
 export default Feed;

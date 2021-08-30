@@ -8,7 +8,7 @@ class Post extends React.Component {
     render() {
         return (
             <TotalWrapper>
-                <SuperiorBar />
+                <SuperiorBar PageName="Details" ReturnButton="" SearchButton="" ReturnURL="/" />
                 <div className="content" style={styles.content}>
                     <PostDetailsPost />
                     <PostDetailsComments />

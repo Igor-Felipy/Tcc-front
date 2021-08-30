@@ -1,18 +1,17 @@
+import styled from "styled-components"
+
 export default function TotalWrapper(props) {
     return (
-        <div style={styles.total}>
+        <Total>
             {props.children}
-        </div>
+        </Total>
     )
 }
 
-
-const styles = {
-    total:{
-      display:'flex',
-      flex:'1',
-      flexDirection:'column',
-      alignItems:'center',
-      justifyContent:'space-between'
-    },
-}
+const Total = styled.div`
+    display:flex;
+    flex:1;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+`;

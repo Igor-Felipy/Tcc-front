@@ -1,27 +1,61 @@
-
-import Arrow from './imgs/arrow.svg';
-import Search from './imgs/search.svg';
+import Arrow from '../imgs/arrow.svg';
+import SearchImage from '../imgs/search.svg';
 import history from '../../history'
 
-export default function superiorBar() {
+export default function superiorBar(props) {
+
+    const PageName = props.PageName;
+    const ReturnButton = props.ReturnButton;
+    const SearchButton = props.SearchButton;
+    const ReturnURL = props.ReturnURL;
+
+    
 
     function redirect() {
-        history.push('/login');
+        history.push(ReturnURL);
+    }
+
+    function goSearchPage() {
+        history.push('/search');
+    }
+
+    function Return() {
+        if(ReturnButton == "True"){
+            return (
+                <div style={styles.superiorButton}>
+                    <button onClick={redirect} style={styles.returnButton}>
+                        <img src={Arrow} alt="Return Button" width="12" height="24"/>
+                    </button>
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
+    }
+    function Search() {
+        if(SearchButton == "True"){
+            return (
+                <div>
+                    <button onClick={goSearchPage} style={styles.searchButton}>
+                            <img src={SearchImage}  alt="search button" width="18" height="18"/>
+                    </button>
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
     }
     
     return (
         <div className="superiorBar" style={styles.superiorBar}>
-            <div style={styles.superiorButton}>
-                    <button onClick={redirect} style={styles.returnButton}>
-                        <img src={Arrow} alt="Return Button" width="12" height="24"/>
-                    </button>
+            
+            <Return />
+
+            <div style={styles.superiorP}>
+                <p style={styles.p}>{PageName}</p>
             </div>
-                <div style={styles.superiorP}><p style={styles.p}>Explorar</p></div>
-                <div>
-                    <button onClick={redirect} style={styles.searchButton}>
-                            <img src={Search}  alt="search button" width="18" height="18"/>
-                    </button>
-                </div>
+            
+            <Search />
         </div>
     )
 }
