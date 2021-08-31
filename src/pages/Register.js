@@ -1,6 +1,7 @@
 import SuperiorBar from './components/SuperiorBar';
 import RegisterForm from './components/RegisterForm';
 import TotalWrapper from './components/TotalWrapper';
+import LoginForm from './components/LoginForm';
 import React from 'react';
 
 class Register extends React.Component {
