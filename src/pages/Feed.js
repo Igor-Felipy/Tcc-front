@@ -14,7 +14,7 @@ class Feed extends React.Component {
         return (
             <TotalWrapper>
                 <SuperiorBar PageName="Feed" ReturnButton="" SearchButton="" ReturnURL="" />
-                <div style={styles.content}>
+                <div style={styles.content}> 
                     <Post profilePic='https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg' postImage='https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg' />
                 </div>      
             </TotalWrapper>
