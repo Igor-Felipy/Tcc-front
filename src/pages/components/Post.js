@@ -1,6 +1,7 @@
 import Heart from '../imgs/heart.svg';
 import Comments from '../imgs/comments.svg';
 import Share from '../imgs/share.svg';
+import styled from 'styled-components';
 
 function Post(props) {
     const profilePic = props.profilePic;
@@ -14,9 +15,11 @@ function Post(props) {
                     <p style={styles.postProfileData}>post data</p>
                 </div>    
             </div>    
-                <div className="post-image" style={styles.postImageDiv}>
-                    <img src={postImage} alt="" style={styles.postImage}/>
-                </div>
+
+            <div className="post-image" style={styles.postImageDiv}>
+                <img src={postImage} alt="" style={styles.postImage}/>
+            </div>
+            
             <div className="post-bottom" style={styles.postBottoms}>
                 <div className="post-bottom-left" style={styles.postBottomLeft}>
                     <button style={styles.postBottomIcons}><img src={Heart} alt="" /></button>
@@ -26,10 +29,15 @@ function Post(props) {
                     <button style={styles.postBottomIcons}><img src={Share} alt=""/></button>
                 </div>
             </div>
-            <div style={styles.riscoFinal}></div>
         </div>
     )
 }
+const Post = styled.div``;
+const PostSuperior = styled.div``;
+const PostImage = styled.div``;
+const PostBottom = styled.div``;
+const PostLeft = styled.div``;
+const PostRight = styled.div``;
 
 const styles = {
     post:{
