@@ -1,26 +1,26 @@
 import Arrow from '../imgs/arrow.svg';
 import SearchImage from '../imgs/search.svg';
-import history from '../../history'
+import React from "react";
 
 export default function superiorBar(props) {
 
     const PageName = props.PageName;
     const ReturnButton = props.ReturnButton;
     const SearchButton = props.SearchButton;
-    const ReturnURL = props.ReturnURL;
+    //const ReturnURL = props.ReturnURL;
 
     
 
     function redirect() {
-        history.push(ReturnURL);
+        // history.push(ReturnURL);
     }
 
     function goSearchPage() {
-        history.push('/search');
+        // history.push('/search');
     }
 
     function Return() {
-        if(ReturnButton == "True"){
+        if(ReturnButton === "True"){
             return (
                 <div style={styles.superiorButton}>
                     <button onClick={redirect} style={styles.returnButton}>
@@ -33,7 +33,7 @@ export default function superiorBar(props) {
         }
     }
     function Search() {
-        if(SearchButton == "True"){
+        if(SearchButton === "True"){
             return (
                 <div>
                     <button onClick={goSearchPage} style={styles.searchButton}>

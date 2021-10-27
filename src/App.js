@@ -1,19 +1,7 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
+import React from "react";
+import Routes from "./routes";
 
-import Routes from './routes';
-import history from './history';
+import "./styles/global";
 
-import { AuthProvider } from './Context/AuthContext'
-
-function App() {
-    return (
-        <AuthProvider>
-            <Router history={history}>
-                <Routes />
-            </Router>
-        </AuthProvider>
-    );
-}
-
+const App = () => <Routes />;
 export default App;

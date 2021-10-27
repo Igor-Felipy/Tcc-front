@@ -1,61 +1,34 @@
-import React, { useContext } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+// eslint-disable-next-line
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import { Context } from './Context/AuthContext';
+import { isAuthenticated } from "./services/auth";
 
-// import Login from './pages/Login';
-import Users from './pages/Users';
-import Register from './pages/Register';
-// import Feed from "./pages/Feed";
-import Post from "./pages/PostDetails";
-import Profile from "./pages/Profile";
-import NewPost from "./pages/NewPost";
+import SignUp from "./pages/Signup/SignUp";
+import SignIn from "./pages/SignIn";
 
-
-import Loading_logo from './pages/imgs/jf_logo.gif';
-
-function CustomRoute({ isPrivate, ...rest }) {
-    const { loading, authenticated } = useContext(Context);
-
-    if (loading) {
-        return(
-            <h1 style={{
-                display:"flex",
-                justifyContent:"center",
-                alignItems:"center"   
-            }}>
-                <img alt="charging" src={Loading_logo} />
-            </h1>
+const PrivateRoute = ({ component: Component, ...rest}) => (
+    <Route 
+      {...rest}
+      render={props =>
+        isAuthenticated() ? (
+            <Component {...props} />
+        ) : (
+            <Redirect to={{ pathname: "/", state: { from: props.location } }} />
         )
     }
+    />
+);
 
-    if(isPrivate && !authenticated) {
-        return <Redirect to="/login" />
-    }
-
-    return <Route {...rest} />;
-}
-
-function Logout(){
-    const { handleLogout } = useContext(Context);
-    return(
-        <div>
-            {handleLogout()}
-        </div>
-    )
-}
-
-export default function Routes() {
-    return (
+const Routes = () => (
+    <BrowserRouter>
         <Switch>
-            {/* <CustomRoute exact path="/login" component={Login}/> */}
-            <CustomRoute exact path="/logout" component={Logout}/>
-            <CustomRoute exact path="/register" component={Register}/>
-            <Route  exact path="/" component={Register}/>
-            <CustomRoute  exact path="/profile" component={Profile}/>
-            <CustomRoute  exact path="/newPost" component={NewPost}/>
-            <CustomRoute  exact path="/users" component={Users}/>
-            <CustomRoute  exact path="/post" component={Post}/>
+            <Route exact path="/" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
+            <PrivateRoute exact path="/app" component={() => <h1>App</h1>} />
+            <Route path="*" component={() => <h1>Page not Found</h1>} />
         </Switch>
-    );
-}
+    </BrowserRouter>
+);
+
+export default Routes;

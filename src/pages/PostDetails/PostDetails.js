@@ -1,7 +1,7 @@
-import SuperiorBar from './components/SuperiorBar';
-import PostDetailsComments from './components/PostDetailsComments';
-import PostDetailsPost from './components/PostDetailsPost';
-import TotalWrapper from './components/TotalWrapper';
+import SuperiorBar from '../components/SuperiorBar';
+import PostDetailsComments from '../components/PostDetailsComments';
+import PostDetailsPost from '../components/PostDetailsPost';
+import TotalWrapper from '../components/TotalWrapper';
 import React from 'react';
 
 class Post extends React.Component {

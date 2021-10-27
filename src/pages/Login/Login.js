@@ -1,7 +1,7 @@
 import React from 'react';
-import SuperiorBar from './components/SuperiorBar';
+import SuperiorBar from '../components/SuperiorBar';
 // import LoginForm from './components/LoginForm';
-import TotalWrapper from './components/TotalWrapper';
+import TotalWrapper from '../components/TotalWrapper';
 
 class Login extends React.Component {
   render() {
