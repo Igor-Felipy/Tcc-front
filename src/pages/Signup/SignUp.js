@@ -11,20 +11,22 @@ import TotalWrapper from '../components/TotalWrapper';
 
 class SignUp extends Component {
     state = {
-        username: "",
         email: "",
+        nickname: "",
+        name: "",
+        birth:"",
         password:"",
         error:""
     };
 
     handleSignUp = async e => {
         e.preventDefault();
-        const { username, email, password } = this.state;
-        if(!username || !email || !password) {
+        const { email, nickname, name, birth, password } = this.state;
+        if(!nickname || !email || !password || !name || !birth) {
             this.setState({ error: "Preencha todos os dados para se cadastrar!"})
         } else {
             try {
-                await api.post("/users", { username, email, password });
+                await api.post("/users", { nickname, email, password, name, birth });
                 this.props.history.push("/");
             } catch (err) {
                 console.log(err);
@@ -42,8 +44,13 @@ class SignUp extends Component {
                     {this.state.error && <p>{this.state.error}</p>}
                     <input
                         type="text"
-                        placeholder="Nome de usúario"
-                        onChange={e => this.setState({ username: e.target.value })}
+                        placeholder="Nickname"
+                        onChange={e => this.setState({ nickname: e.target.value })}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                        onChange={e => this.setState({ name: e.target.value })}
                     />
                     <input
                         type="email"
@@ -51,9 +58,14 @@ class SignUp extends Component {
                         onChange={e => this.setState({ email: e.target.value })}
                     />
                     <input
+                        type="text"
+                        placeholder="Data de Nascimento"
+                        onChange={e => this.setState({ email: e.target.value })}
+                    />
+                    <input
                         type="password"
                         placeholder="senha"
-                        onChange={e => this.setState({ username: e.target.value })}
+                        onChange={e => this.setState({ nickname: e.target.value })}
                     />
                     <button type="submit">Cadastrar</button>
                     <hr />
