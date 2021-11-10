@@ -1,7 +1,7 @@
 import SuperiorBar from '../components/SuperiorBar';
 import TotalWrapper from '../components/TotalWrapper';
 import React, { Component } from 'react';
-import Form from './styles'
+import { Form } from './styles'
 
 import api from "../../services/api";
 
@@ -19,7 +19,7 @@ class NewPost extends Component{
             this.setState({ error: "Preencha os campos para continuar!"});
         } else {
             try{
-                const response = await api.post("/post/new_post", { image, caption });
+                await api.post("/post/new_post", { image, caption });
                 this.props.history.push("/");
             } catch (err) {
                 this.setState({

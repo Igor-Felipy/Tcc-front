@@ -8,6 +8,7 @@ import SignUp from "./pages/Signup/SignUp";
 import SignIn from "./pages/SignIn";
 import Feed from "./pages/Feed/Feed";
 import NotFound from "./pages/NotFound/NotFound";
+import NewPost from "./pages/NewPost/NewPost";
 
 const PrivateRoute = ({ component: Component, ...rest}) => (
     <Route 
@@ -25,9 +26,10 @@ const PrivateRoute = ({ component: Component, ...rest}) => (
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/SignIn" component={SignIn} />
+            <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <PrivateRoute exact path="/" component={Feed} />
+            <PrivateRoute exact path="/newpost" component={NewPost} />
             <Route path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>
