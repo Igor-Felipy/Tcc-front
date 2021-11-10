@@ -32,12 +32,6 @@ function Post(props) {
         </div>
     )
 }
-const Post = styled.div``;
-const PostSuperior = styled.div``;
-const PostImage = styled.div``;
-const PostBottom = styled.div``;
-const PostLeft = styled.div``;
-const PostRight = styled.div``;
 
 const styles = {
     post:{
