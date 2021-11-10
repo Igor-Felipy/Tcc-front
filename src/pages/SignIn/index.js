@@ -26,7 +26,7 @@ class SignIn extends Component {
             try {
                 const response = await api.post("/auth/login", { email, password });
                 login(response.data.token);
-                this.props.history.push("/app");
+                this.props.history.push("/");
             } catch (err) {
                 this.setState({
                     error:
@@ -46,7 +46,7 @@ class SignIn extends Component {
             <input
                 type="email"
                 placeholder="Endereço de e-mail"
-                onChange={e => this.setState({ password: e.target.value })}
+                onChange={e => this.setState({ email: e.target.value })}
             />
             <input
                 type="password"
