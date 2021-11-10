@@ -6,6 +6,8 @@ import { isAuthenticated } from "./services/auth";
 
 import SignUp from "./pages/Signup/SignUp";
 import SignIn from "./pages/SignIn";
+import Feed from "./pages/Feed/Feed";
+import NotFound from "./pages/NotFound/NotFound";
 
 const PrivateRoute = ({ component: Component, ...rest}) => (
     <Route 
@@ -14,7 +16,7 @@ const PrivateRoute = ({ component: Component, ...rest}) => (
         isAuthenticated() ? (
             <Component {...props} />
         ) : (
-            <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+            <Redirect to={{ pathname: "/SignIn", state: { from: props.location } }} />
         )
     }
     />
@@ -23,10 +25,10 @@ const PrivateRoute = ({ component: Component, ...rest}) => (
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={SignIn} />
+            <Route exact path="/SignIn" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
-            <PrivateRoute exact path="/app" component={() => <h1>App</h1>} />
-            <Route path="*" component={() => <h1>Page not Found</h1>} />
+            <PrivateRoute exact path="/" component={Feed} />
+            <Route path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>
 );
