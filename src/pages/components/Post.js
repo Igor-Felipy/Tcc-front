@@ -1,3 +1,4 @@
+import React from 'react';
 import Heart from '../imgs/heart.svg';
 import Comments from '../imgs/comments.svg';
 import Share from '../imgs/share.svg';
