@@ -1,10 +1,8 @@
+// eslint-disable-next-line
 import React, {useEffect, useState} from 'react';
 
-import Post from '../components/Post';
 import SuperiorBar from '../components/SuperiorBar';
 import TotalWrapper from '../components/TotalWrapper';
-
-import api from "../../services/api";
 
 class NotFound extends React.Component {
     render() {

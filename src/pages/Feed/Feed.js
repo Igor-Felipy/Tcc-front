@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, {useEffect, useState} from 'react';
 
 import Post from '../components/Post';
@@ -7,10 +8,6 @@ import TotalWrapper from '../components/TotalWrapper';
 import api from "../../services/api";
 
 class Feed extends React.Component {
-    constructor(props){
-        super(props);
-    };
-
 
     getPositivePosts = async e => {
         const response = await api.post("/happy");
