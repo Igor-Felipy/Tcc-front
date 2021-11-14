@@ -1,51 +1,62 @@
-export default function ProfileContent() {
-    return (
-        <div className="content" style={styles.content}>
-            <div className="profileData" style={styles.profileData}>
-                <img src="https://source.unsplash.com/random/100x100" style={styles.profileImage} alt="" />
-                <div style={styles.dataDiv}>
-                    <h1 style={styles.profileName}>justFeelings_</h1>
-                    <p style={styles.profileCaption}>Aqui está uma legenda. Uma beeeela legenda...</p>
-                    <div style={styles.divNumbers}>
-                        <div style={styles.separator}>
-                            <p style={styles.number1}>438</p>
-                            <p style={styles.number2}>Posts</p>
-                        </div>                        
-                        <div style={styles.separator}>
-                            <p style={styles.number1}>298</p>
-                            <p style={styles.number2}>Seguindo</p>
+import React from 'react';
+
+import api from "../../services/api";
+
+class ProfileContent extends React.Component {
+
+    AllPots = async e => {
+        try{
+            const posts = await api.post("/post/profile", {"user_id":this.props.id});
+            return(
+                posts.map(
+                    <button style={styles.postButton}>
+                        <img src={posts.image} style={styles.imagePost}  alt={posts.caption}/>
+                    </button>
+                )
+            )
+        } catch (err) {
+            return(
+                <h1>{err}</h1>
+            )
+        }
+    }
+
+    render() {
+        return (
+            <div className="content" style={styles.content}>
+                <div className="profileData" style={styles.profileData}>
+                    <img src="https://source.unsplash.com/random/100x100" style={styles.profileImage} alt="" />
+                    <div style={styles.dataDiv}>
+                        <h1 style={styles.profileName}>justFeelings_</h1>
+                        <p style={styles.profileCaption}>Aqui está uma legenda. Uma beeeela legenda...</p>
+                        <div style={styles.divNumbers}>
+                            <div style={styles.separator}>
+                                <p style={styles.number1}>438</p>
+                                <p style={styles.number2}>Posts</p>
+                            </div>                        
+                            <div style={styles.separator}>
+                                <p style={styles.number1}>298</p>
+                                <p style={styles.number2}>Seguindo</p>
+                            </div>
+                            <div style={styles.separator}>
+                                <p style={styles.number1}>321k</p>
+                                <p style={styles.number2}>Seguidores</p>
+                            </div>
                         </div>
-                        <div style={styles.separator}>
-                            <p style={styles.number1}>321k</p>
-                            <p style={styles.number2}>Seguidores</p>
-                        </div>
+                        
                     </div>
-                    
+                    <div style={styles.editFollow}>
+                        <button style={styles.editFollowButton}>Follow</button>
+                        <p style={styles.percentage}>5/10</p>
+                    </div>
                 </div>
-                <div style={styles.editFollow}>
-                    <button style={styles.editFollowButton}>Edit</button>
-                    <p style={styles.percentage}>5/10</p>
-                </div>
+    
+                <div className="divPosts" style={styles.divPosts}>
+                    <this.AllPots />
+                </div> 
             </div>
-            <div className="divPosts" style={styles.divPosts}>
-                <button style={styles.postButton}>
-                    <img src="https://source.unsplash.com/random/800x600" style={styles.imagePost}  alt=""/>
-                </button> 
-                <button style={styles.postButton}>
-                    <img src="https://source.unsplash.com/random/800x600" style={styles.imagePost}  alt=""/>
-                </button> 
-                <button style={styles.postButton}>
-                    <img src="https://source.unsplash.com/random/800x600" style={styles.imagePost}  alt=""/>
-                </button> 
-                <button style={styles.postButton}>
-                    <img src="https://source.unsplash.com/random/800x600" style={styles.imagePost}  alt=""/>
-                </button> 
-                <button style={styles.postButton}>
-                    <img src="https://source.unsplash.com/random/800x600" style={styles.imagePost}  alt=""/>
-                </button>    
-            </div> 
-        </div>
-    )
+        )    
+    }
 }
 
 const styles = {
@@ -136,3 +147,5 @@ const styles = {
         borderRadius:"10px",
     }
 }
+
+export default ProfileContent;

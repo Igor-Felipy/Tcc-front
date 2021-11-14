@@ -26,7 +26,7 @@ class SignUp extends Component {
             this.setState({ error: "Preencha todos os dados para se cadastrar!"})
         } else {
             try {
-                await api.post("/users", { nickname, email, password, name, birth });
+                await api.post("/auth/register", { nickname, email, password, name, birth });
                 this.props.history.push("/");
             } catch (err) {
                 console.log(err);
@@ -60,12 +60,12 @@ class SignUp extends Component {
                     <input
                         type="text"
                         placeholder="Data de Nascimento"
-                        onChange={e => this.setState({ email: e.target.value })}
+                        onChange={e => this.setState({ birth: e.target.value })}
                     />
                     <input
                         type="password"
                         placeholder="senha"
-                        onChange={e => this.setState({ nickname: e.target.value })}
+                        onChange={e => this.setState({ password: e.target.value })}
                     />
                     <button type="submit">Cadastrar</button>
                     <hr />
