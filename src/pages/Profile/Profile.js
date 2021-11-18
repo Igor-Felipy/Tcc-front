@@ -7,7 +7,7 @@ class Profile extends React.Component {
     render() {
         return(
             <TotalWrapper>
-                <SuperiorBar PageName="Profile" ReturnButton="" SearchButton="" ReturnURL="/" />
+                <SuperiorBar PageName="Profile" ReturnButton="True" SearchButton="" ReturnURL="/" />
                 <ProfileContent id={this.props.id} />
             </TotalWrapper>
         )

@@ -1,18 +1,20 @@
 import Arrow from '../imgs/arrow.svg';
 import SearchImage from '../imgs/search.svg';
 import React from "react";
+// eslint-disable-next-line
+import { useHistory } from "react-router-dom";
 
 export default function superiorBar(props) {
 
     const PageName = props.PageName;
     const ReturnButton = props.ReturnButton;
     const SearchButton = props.SearchButton;
-    //const ReturnURL = props.ReturnURL;
-
     
-
+    
     function redirect() {
-        // history.push(ReturnURL);
+        // const history = useHistory();
+        // history.push("/")
+        window.location.href = "http://localhost:3000/";
     }
 
     function goSearchPage() {

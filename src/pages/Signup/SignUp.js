@@ -70,6 +70,7 @@ class SignUp extends Component {
                     <button type="submit">Cadastrar</button>
                     <hr />
                     <Link to="/">Fazer Login</Link>
+                    <p>Ao clicar em Cadastrar você concorda com nossos <Link to="/">termos e condições</Link></p>
                 </Form>
             </TotalWrapper>
         );

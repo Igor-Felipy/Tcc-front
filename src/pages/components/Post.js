@@ -1,18 +1,24 @@
-import React from 'react';
 import Heart from '../imgs/heart.svg';
 import Comments from '../imgs/comments.svg';
 import Share from '../imgs/share.svg';
+import React from 'react';
+
+import { Link } from "react-router-dom";
 
 function Post(props) {
     const profilePic = props.profilePic;
     const postImage = props.postImage;
+    const postName = props.name;
+    const postdate = props.date;
+    // eslint-disable-next-line
+    const postcaption = props.caption;
     return(
         <div style={styles.post}>
             <div className="post-superior" style={styles.postSuperior}>
                 <img src={profilePic} alt="" style={styles.postProfilePic}/>
                 <div className="post-superior-data" style={styles.postSuperiorData}>
-                    <h2 style={styles.postProfileName}>Username</h2>
-                    <p style={styles.postProfileData}>post data</p>
+                    <h2 style={styles.postProfileName}><Link to="/profile" style={styles.link}>{postName}</Link></h2>
+                    <p style={styles.postProfileData}>{postdate}</p>
                 </div>    
             </div>    
 
@@ -52,6 +58,12 @@ const styles = {
         marginRight:"10px"
     },
     postProfileName:{
+        fontWeight:"bold",
+        fontSize:"13px",
+        color:"#151522"
+    },
+    link:{
+        textDecoration:"none",
         fontWeight:"bold",
         fontSize:"13px",
         color:"#151522"

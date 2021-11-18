@@ -25,21 +25,21 @@ class ProfileContent extends React.Component {
         return (
             <div className="content" style={styles.content}>
                 <div className="profileData" style={styles.profileData}>
-                    <img src="https://source.unsplash.com/random/100x100" style={styles.profileImage} alt="" />
+                    <img src="https://pbs.twimg.com/profile_images/1253409729436516352/LYccETBS_400x400.jpg" style={styles.profileImage} alt="" />
                     <div style={styles.dataDiv}>
-                        <h1 style={styles.profileName}>justFeelings_</h1>
-                        <p style={styles.profileCaption}>Aqui está uma legenda. Uma beeeela legenda...</p>
+                        <h1 style={styles.profileName}>Guizin sadboy das Trevas</h1>
+                        <p style={styles.profileCaption}>Apenas mais otaku latino americano</p>
                         <div style={styles.divNumbers}>
                             <div style={styles.separator}>
-                                <p style={styles.number1}>438</p>
+                                <p style={styles.number1}>5</p>
                                 <p style={styles.number2}>Posts</p>
                             </div>                        
                             <div style={styles.separator}>
-                                <p style={styles.number1}>298</p>
+                                <p style={styles.number1}>4</p>
                                 <p style={styles.number2}>Seguindo</p>
                             </div>
                             <div style={styles.separator}>
-                                <p style={styles.number1}>321k</p>
+                                <p style={styles.number1}>2</p>
                                 <p style={styles.number2}>Seguidores</p>
                             </div>
                         </div>
@@ -52,7 +52,23 @@ class ProfileContent extends React.Component {
                 </div>
     
                 <div className="divPosts" style={styles.divPosts}>
-                    <this.AllPots />
+                    <button style={styles.postButton}>
+                        <img src="https://i.pinimg.com/originals/13/c8/3c/13c83c039880443152bfc07ecea8bf75.png" style={styles.imagePost}  alt={"finalmente entendi pq o light feis oq feis #lifehard"}/>
+                    </button>
+                    <button style={styles.postButton}>
+                        <img src="https://pbs.twimg.com/media/D5g8dJSWAAEMDmB.jpg" style={styles.imagePost}  alt="Todoroki ta massa vei!"/>
+                    </button>
+                    <button style={styles.postButton}>
+                        <img src="http://pm1.narvii.com/6554/085b372cc33a861099f5c5e586a010a9d1f31f8a_00.jpg" style={styles.imagePost}  alt="me recomendaram pra assistir, é boum?"/>
+                    </button>
+                    <button style={styles.postButton}>
+                        <img src="https://cdn.falauniversidades.com.br/wp-content/uploads/2021/03/24175825/animes.png" style={styles.imagePost}  alt="so alguns animes qi eu curto pa vcs" date="16/11/2021" user_id="1" name="Guizin sadboy das Trevas"/>
+                    </button>
+                    <button style={styles.postButton}>
+                        <img src="https://pbs.twimg.com/profile_images/1253409729436516352/LYccETBS_400x400.jpg" postImage="https://www.comboinfinito.com.br/principal/wp-content/uploads/2021/07/Fullmetal-manga.jpg" style={styles.imagePost}  alt="MELHOR PERSONAGI DE TODUS US TEMPUS"/>
+                    </button>
+
+                   
                 </div> 
             </div>
         )    

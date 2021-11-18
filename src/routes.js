@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
+import { logout } from "./services/auth";
+
 import { isAuthenticated } from "./services/auth";
 
 import SignUp from "./pages/Signup/SignUp";
@@ -29,9 +31,10 @@ const Routes = () => (
         <Switch>
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/profile" component={Profile} />
             <PrivateRoute exact path="/" component={Feed} />
             <PrivateRoute exact path="/newpost" component={NewPost} />
+            <PrivateRoute exact path="/logout" component={logout} />
             <Route path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>
